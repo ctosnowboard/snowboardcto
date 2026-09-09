@@ -42,3 +42,50 @@ body {
 .ice-text-glow {
   text-shadow: 0 0 24px rgba(56, 189, 248, 0.45);
 }
+
+.display-hero {
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 800;
+  line-height: 0.95;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.partner-card,
+.post-card {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+a:hover > .partner-card,
+a:hover > .post-card {
+  border-color: rgba(56, 189, 248, 0.5);
+  background-color: rgba(56, 189, 248, 0.06);
+  box-shadow: 0 0 24px rgba(0, 163, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

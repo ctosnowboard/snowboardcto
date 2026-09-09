@@ -15,9 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "$SNOWBOARD | Coming Soon",
+  title: "$SNOWBOARD | Community Takeover on BSC",
   description:
-    "Snowboard Token is a pure community-driven memecoin on Binance Smart Chain. Pure vibes. Send it. Coming soon.",
+    "Snowboard Token is a pure community-driven memecoin on Binance Smart Chain. Pure vibes. Send it.",
+  openGraph: {
+    title: "$SNOWBOARD | Community Takeover on BSC",
+    description:
+      "Snowboard Token is a pure community-driven memecoin on Binance Smart Chain. Pure vibes. Send it.",
+    images: ["/assets/images/logo.png"],
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +36,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-background font-sans text-foreground">
         {children}
         <Toaster
           theme="dark"
