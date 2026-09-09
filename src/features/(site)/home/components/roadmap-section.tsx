@@ -1,18 +1,8 @@
 import { PageContainer } from "@/components/layouts/(site)/page-container";
-import {
-  ROADMAP_PHASES,
-  STATUS_LABELS,
-  type RoadmapStatus,
-} from "@/features/(site)/roadmap/constants";
-import { cn } from "@/lib/utils";
+import { StatusBadge } from "@/features/(site)/roadmap/components/status-badge";
+import { ROADMAP_PHASES } from "@/features/(site)/roadmap/constants";
 
 import { SectionIntro } from "./section-intro";
-
-const statusStyles: Record<RoadmapStatus, string> = {
-  completed: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400",
-  "in-progress": "border-ice/40 bg-ice/10 text-ice-glow",
-  upcoming: "border-slate-600/40 bg-slate-800/50 text-slate-400",
-};
 
 export function RoadmapSection() {
   return (
@@ -29,22 +19,15 @@ export function RoadmapSection() {
         {ROADMAP_PHASES.map((phase) => (
           <li
             key={phase.title}
-            className="rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm sm:p-6"
+            className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm sm:p-6"
           >
             <div className="mb-3 flex items-start justify-between gap-3">
               <span className="text-2xl" aria-hidden>
                 {phase.emoji}
               </span>
-              <span
-                className={cn(
-                  "rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider",
-                  statusStyles[phase.status],
-                )}
-              >
-                {STATUS_LABELS[phase.status]}
-              </span>
+              <StatusBadge status={phase.status} className="shrink-0" />
             </div>
-            <h3 className="mb-2 text-sm font-bold text-white sm:text-base">
+            <h3 className="mb-2 text-sm font-bold wrap-break-word text-white sm:text-base">
               {phase.title}
             </h3>
             <p className="text-xs leading-relaxed text-slate-400 sm:text-sm">

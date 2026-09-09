@@ -7,11 +7,11 @@ import { SectionIntro } from "./section-intro";
 
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
-    <article className="rounded-2xl border border-ice/20 bg-surface/80 px-4 py-5 text-center backdrop-blur-sm sm:py-6">
+    <article className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 px-3 py-5 text-center backdrop-blur-sm sm:px-4 sm:py-6">
       <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/80">
         {label}
       </p>
-      <p className="ice-text-glow text-xl font-bold text-white sm:text-2xl">
+      <p className="ice-text-glow text-lg font-bold wrap-break-word text-white sm:text-2xl">
         {value}
       </p>
     </article>

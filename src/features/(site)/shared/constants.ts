@@ -1,6 +1,25 @@
+function resolveSiteUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit) {
+    return explicit.replace(/\/$/, "");
+  }
+
+  const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (productionHost) {
+    return `https://${productionHost.replace(/\/$/, "")}`;
+  }
+
+  return "https://ctosnowboard.vercel.app";
+}
+
+export const SITE_URL = resolveSiteUrl();
+
 export const SITE = {
   name: "$SNOWBOARD",
   tagline: "The future is frozen",
+  title: "$SNOWBOARD | Community Takeover on BSC",
+  description:
+    "$SNOWBOARD is a community takeover memecoin on Binance Smart Chain. Official CA 0x95b643d0f281016e4e8e22111f0cb1676c73efc6. 0% tax, locked liquidity, renounced ownership. Buy on PancakeSwap.",
   footer: "On Binance Smart Chain · Community Takeover",
   disclaimer:
     "$SNOWBOARD is a community-driven takeover project. No returns are guaranteed. Holders may gain or lose depending on market conditions.",
@@ -16,6 +35,7 @@ export const SOCIALS = {
   x: {
     label: "Follow on X",
     href: "https://x.com/Snowboard_cto",
+    handle: "@Snowboard_cto",
   },
 } as const;
 

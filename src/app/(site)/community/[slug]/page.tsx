@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/json-ld";
 import CommunityPostPage from "@/features/(site)/community/components/post-page";
 import {
   COMMUNITY_POSTS,
   getPostBySlug,
 } from "@/features/(site)/community/constants";
-import { SITE } from "@/features/(site)/shared";
+import { articleJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 type CommunitySlugPageProps = {
   params: Promise<{ slug: string }>;
@@ -25,13 +26,19 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
 
   if (!post) {
-    return { title: `Update not found | ${SITE.name}` };
+    return {
+      title: "Update not found",
+      robots: { index: false, follow: false },
+    };
   }
 
-  return {
-    title: `${post.title} | ${SITE.name}`,
+  return pageMetadata({
+    title: post.title,
     description: post.excerpt,
-  };
+    path: `/community/${post.slug}`,
+    ogType: "article",
+    publishedTime: post.date,
+  });
 }
 
 export default async function Page({ params }: CommunitySlugPageProps) {
@@ -42,5 +49,26 @@ export default async function Page({ params }: CommunitySlugPageProps) {
     notFound();
   }
 
-  return <CommunityPostPage post={post} />;
+  const path = `/community/${post.slug}`;
+
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Community", path: "/community" },
+          { name: post.title, path },
+        ])}
+      />
+      <JsonLd
+        data={articleJsonLd({
+          title: post.title,
+          description: post.excerpt,
+          path,
+          date: post.date,
+        })}
+      />
+      <CommunityPostPage post={post} />
+    </>
+  );
 }

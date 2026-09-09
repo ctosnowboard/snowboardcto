@@ -16,11 +16,11 @@ export function PageHeader({
   return (
     <header className={cn("text-center", className)}>
       {eyebrow && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-ice/80 sm:mb-4">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-ice/80 sm:mb-4 sm:tracking-[0.25em]">
           {eyebrow}
         </p>
       )}
-      <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      <h1 className="text-3xl font-bold tracking-tight wrap-break-word text-white sm:text-4xl lg:text-5xl">
         {title}
       </h1>
       {subtitle && (

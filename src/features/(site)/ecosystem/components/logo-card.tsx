@@ -19,7 +19,7 @@ export function LogoCard({ name, href, live = true, logo }: LogoCardProps) {
   const card = (
     <div
       className={cn(
-        "partner-card flex h-full flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-center",
+        "partner-card flex h-full min-w-0 flex-col items-center justify-center gap-2 rounded-2xl border px-2 py-5 text-center sm:px-3",
         live
           ? "border-ice/20 bg-surface/80"
           : "cursor-not-allowed border-ice/10 bg-surface/40 opacity-70",
@@ -30,13 +30,13 @@ export function LogoCard({ name, href, live = true, logo }: LogoCardProps) {
         <img
           src={logo}
           alt=""
-          className="size-12 object-contain"
+          className="size-10 object-contain sm:size-12"
         />
       ) : (
         <span
           aria-hidden
           className={cn(
-            "flex size-12 items-center justify-center rounded-xl border text-sm font-bold tracking-wide",
+            "flex size-10 items-center justify-center rounded-xl border text-sm font-bold tracking-wide sm:size-12",
             live
               ? "border-ice/30 bg-ice/10 text-ice-glow"
               : "border-slate-700 bg-slate-900 text-slate-500",
@@ -47,7 +47,7 @@ export function LogoCard({ name, href, live = true, logo }: LogoCardProps) {
       )}
       <span
         className={cn(
-          "text-xs font-semibold leading-tight sm:text-sm",
+          "text-xs font-semibold leading-tight wrap-break-word sm:text-sm",
           live ? "text-white" : "text-slate-500",
         )}
       >

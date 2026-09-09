@@ -24,7 +24,7 @@ export function ArtFrame({
   return (
     <figure
       className={cn(
-        "overflow-hidden rounded-2xl border border-ice/20 bg-surface/80",
+        "w-full overflow-hidden rounded-2xl border border-ice/20 bg-surface/80",
         fill && "relative",
         className,
       )}

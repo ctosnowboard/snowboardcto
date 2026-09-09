@@ -28,23 +28,25 @@ export function FaqAccordion({ items, className }: FaqAccordionProps) {
             key={item.question}
             className="overflow-hidden rounded-2xl border border-ice/20 bg-surface/80 backdrop-blur-sm"
           >
-            <button
-              type="button"
-              aria-expanded={isOpen}
-              onClick={() => setOpenIndex(isOpen ? null : index)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-ice/5 sm:px-6 sm:py-5"
-            >
-              <span className="text-sm font-semibold text-white sm:text-base">
-                {item.question}
-              </span>
-              <ChevronDown
-                className={cn(
-                  "size-5 shrink-0 text-ice-glow transition-transform duration-200",
-                  isOpen && "rotate-180",
-                )}
-                aria-hidden
-              />
-            </button>
+            <h3 className="m-0 text-inherit font-inherit">
+              <button
+                type="button"
+                aria-expanded={isOpen}
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left transition hover:bg-ice/5 sm:px-6 sm:py-5"
+              >
+                <span className="min-w-0 text-sm font-semibold text-white sm:text-base">
+                  {item.question}
+                </span>
+                <ChevronDown
+                  className={cn(
+                    "size-5 shrink-0 text-ice-glow transition-transform duration-200",
+                    isOpen && "rotate-180",
+                  )}
+                  aria-hidden
+                />
+              </button>
+            </h3>
             <div
               className={cn(
                 "grid transition-[grid-template-rows] duration-200",
@@ -52,7 +54,7 @@ export function FaqAccordion({ items, className }: FaqAccordionProps) {
               )}
             >
               <div className="overflow-hidden">
-                <p className="px-5 pb-4 text-sm leading-relaxed text-slate-400 sm:px-6 sm:pb-5">
+                <p className="px-4 pb-4 text-sm leading-relaxed text-slate-400 sm:px-6 sm:pb-5">
                   {item.answer}
                 </p>
               </div>

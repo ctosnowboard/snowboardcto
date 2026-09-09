@@ -11,7 +11,7 @@ type CommunityPostPageProps = {
 
 export default function CommunityPostPage({ post }: CommunityPostPageProps) {
   return (
-    <div className="flex flex-col overflow-x-hidden">
+    <div className="flex flex-col">
       <MarqueeBand />
 
       <div className="space-y-10 py-12 sm:space-y-12 sm:py-16 lg:py-20">
@@ -36,7 +36,7 @@ export default function CommunityPostPage({ post }: CommunityPostPageProps) {
               </time>
             </div>
 
-            <h1 className="mb-8 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h1 className="mb-8 text-3xl font-bold tracking-tight wrap-break-word text-white sm:text-4xl">
               {post.title}
             </h1>
 

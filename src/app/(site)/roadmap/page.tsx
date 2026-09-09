@@ -1,14 +1,26 @@
 import type { Metadata } from "next";
 
-import { SITE } from "@/features/(site)/shared";
+import { JsonLd } from "@/components/json-ld";
 import RoadmapPage from "@/features/(site)/roadmap/components/roadmap-page";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `Roadmap | ${SITE.name}`,
+export const metadata: Metadata = pageMetadata({
+  title: "Roadmap",
   description:
     "See the $SNOWBOARD roadmap — listings live today, market-cap targets next, then community rewards and games.",
-};
+  path: "/roadmap",
+});
 
 export default function Page() {
-  return <RoadmapPage />;
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Roadmap", path: "/roadmap" },
+        ])}
+      />
+      <RoadmapPage />
+    </>
+  );
 }

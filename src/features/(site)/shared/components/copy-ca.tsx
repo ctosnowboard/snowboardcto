@@ -13,13 +13,25 @@ function shortAddress(address: string) {
 
 type CopyCaProps = {
   className?: string;
+  address?: string;
+  chain?: string;
+  label?: string;
+  copiedMessage?: string;
+  copyAriaLabel?: string;
 };
 
-export function CopyCa({ className }: CopyCaProps) {
+export function CopyCa({
+  className,
+  address = CONTRACT.address,
+  chain = CONTRACT.chain,
+  label = "Contract Address",
+  copiedMessage = "Contract address copied",
+  copyAriaLabel = "Copy contract address",
+}: CopyCaProps) {
   async function handleCopy() {
     try {
-      await navigator.clipboard.writeText(CONTRACT.address);
-      toast.success("Contract address copied");
+      await navigator.clipboard.writeText(address);
+      toast.success(copiedMessage);
     } catch {
       toast.error("Could not copy address");
     }
@@ -32,21 +44,21 @@ export function CopyCa({ className }: CopyCaProps) {
         className,
       )}
     >
-      <p className="mb-2 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-ice-glow/80 sm:text-xs">
-        Contract Address · {CONTRACT.chain}
+        <p className="mb-2 text-center text-[10px] font-medium uppercase tracking-[0.16em] text-ice-glow/80 sm:text-xs sm:tracking-[0.2em]">
+        {label} · {chain}
       </p>
       <div className="flex items-center gap-2">
         <code
           className="min-w-0 flex-1 truncate rounded-xl bg-background/80 px-2 py-2 text-center font-mono text-xs text-ice-glow sm:px-3 sm:text-sm sm:text-left"
-          title={CONTRACT.address}
+          title={address}
         >
-          <span className="sm:hidden">{shortAddress(CONTRACT.address)}</span>
-          <span className="hidden sm:inline">{CONTRACT.address}</span>
+          <span className="sm:hidden">{shortAddress(address)}</span>
+          <span className="hidden sm:inline">{address}</span>
         </code>
         <button
           type="button"
           onClick={handleCopy}
-          aria-label="Copy contract address"
+          aria-label={copyAriaLabel}
           className={cn(
             "inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-ice-bright text-background transition",
             "hover:bg-ice-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ice",

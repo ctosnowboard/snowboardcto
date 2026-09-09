@@ -83,3 +83,9 @@ export const STATUS_LABELS: Record<RoadmapStatus, string> = {
   "in-progress": "In Progress",
   upcoming: "Upcoming",
 };
+
+export const STATUS_STYLES: Record<RoadmapStatus, string> = {
+  completed: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400",
+  "in-progress": "border-ice/40 bg-ice/10 text-ice-glow",
+  upcoming: "border-slate-600/40 bg-slate-800/50 text-slate-400",
+};

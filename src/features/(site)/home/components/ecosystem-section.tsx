@@ -19,7 +19,7 @@ export function EcosystemSection() {
       />
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {featuredPartners.map((partner) => (
-          <li key={partner.name}>
+          <li key={partner.name} className="min-w-0">
             <LogoCard
               name={partner.name}
               href={partner.href}

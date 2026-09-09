@@ -6,22 +6,17 @@ import {
   ArtFrame,
   FaqAccordion,
   MarqueeBand,
+  OutlineButton,
   PageHeader,
   SITE,
   SOCIALS,
 } from "@/features/(site)/shared";
-import { cn } from "@/lib/utils";
 
 import { ABOUT_STORY, FAQ_ITEMS } from "../constants";
 
-const ctaClassName = cn(
-  "inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-ice/40 bg-surface/60 px-6 text-sm font-semibold text-ice-glow backdrop-blur-sm transition",
-  "hover:border-ice hover:bg-ice/10 sm:w-auto sm:min-w-44",
-);
-
 export default function AboutPage() {
   return (
-    <div className="flex flex-col overflow-x-hidden">
+    <div className="flex flex-col">
       <MarqueeBand />
 
       <div className="space-y-16 py-12 sm:space-y-20 sm:py-16 lg:space-y-24 lg:py-20">
@@ -35,7 +30,7 @@ export default function AboutPage() {
 
         <PageContainer>
           <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
-            <section className="rounded-2xl border border-ice/20 bg-surface/80 p-6 backdrop-blur-sm sm:p-8 lg:p-10">
+            <section className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm sm:p-8 lg:p-10">
               <h2 className="mb-6 text-xl font-bold text-white sm:text-2xl">
                 {ABOUT_STORY.headline}
               </h2>
@@ -54,7 +49,7 @@ export default function AboutPage() {
               src={ASSETS.art.alienJourney}
               alt="How far the community travelled to reach Snowboard on BSC"
               fill
-              className="h-full min-h-80"
+              className="aspect-4/3 h-auto min-h-0 lg:aspect-auto lg:h-full lg:min-h-80"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
@@ -78,25 +73,15 @@ export default function AboutPage() {
               Daily updates, pure vibes, and a community that actually rides
               together.
             </p>
-            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <a
-                href={SOCIALS.telegram.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={ctaClassName}
-              >
+            <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center">
+              <OutlineButton href={SOCIALS.telegram.href}>
                 <TelegramIcon className="size-4" />
                 {SOCIALS.telegram.label}
-              </a>
-              <a
-                href={SOCIALS.x.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={ctaClassName}
-              >
+              </OutlineButton>
+              <OutlineButton href={SOCIALS.x.href}>
                 <XIcon className="size-4" />
                 {SOCIALS.x.label}
-              </a>
+              </OutlineButton>
             </div>
           </section>
         </PageContainer>
@@ -104,7 +89,7 @@ export default function AboutPage() {
         <PageContainer width="narrow">
           <section id="faq">
             <div className="mb-8 text-center">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-ice/80">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-ice/80 sm:tracking-[0.25em]">
                 Got Questions?
               </p>
               <h2 className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">

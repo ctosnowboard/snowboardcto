@@ -122,7 +122,13 @@ export function PartnerForm() {
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
       <div className="grid gap-4 sm:grid-cols-2">
         {fields.map((field) => (
-          <label key={field.name} className="flex flex-col gap-1.5 text-left">
+          <label
+            key={field.name}
+            className={cn(
+              "flex flex-col gap-1.5 text-left",
+              field.name === "link" && "sm:col-span-2",
+            )}
+          >
             <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
               {field.label}
             </span>
@@ -140,7 +146,7 @@ export function PartnerForm() {
                 }))
               }
               className={cn(
-                "rounded-xl border bg-background/80 px-4 py-3 text-sm text-white placeholder:text-slate-600",
+                "rounded-xl border bg-background/80 px-4 py-3 text-base text-white placeholder:text-slate-600 sm:text-sm",
                 "focus:border-ice focus:outline-none",
                 errors[field.name] ? "border-red-400/60" : "border-ice/20",
               )}
@@ -169,7 +175,7 @@ export function PartnerForm() {
             }))
           }
           className={cn(
-            "resize-y rounded-xl border bg-background/80 px-4 py-3 text-sm text-white placeholder:text-slate-600",
+            "min-h-32 w-full resize-y rounded-xl border bg-background/80 px-4 py-3 text-base text-white placeholder:text-slate-600 sm:text-sm",
             "focus:border-ice focus:outline-none",
             errors.message ? "border-red-400/60" : "border-ice/20",
           )}
@@ -180,7 +186,7 @@ export function PartnerForm() {
       </label>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <label className="flex max-w-48 flex-col gap-1.5 text-left">
+        <label className="flex w-full max-w-48 flex-col gap-1.5 text-left">
           <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
             {captchaLabel}
           </span>
@@ -191,7 +197,7 @@ export function PartnerForm() {
             aria-invalid={Boolean(captchaError)}
             onChange={(event) => setCaptchaAnswer(event.target.value)}
             className={cn(
-              "rounded-xl border bg-background/80 px-4 py-3 text-sm text-white",
+              "rounded-xl border bg-background/80 px-4 py-3 text-base text-white sm:text-sm",
               "focus:border-ice focus:outline-none",
               captchaError ? "border-red-400/60" : "border-ice/20",
             )}
@@ -205,7 +211,7 @@ export function PartnerForm() {
           type="submit"
           disabled={submitting}
           className={cn(
-            "inline-flex h-12 items-center justify-center rounded-full bg-ice-bright px-8 text-sm font-semibold text-background transition",
+            "inline-flex h-12 w-full items-center justify-center rounded-full bg-ice-bright px-8 text-sm font-semibold text-background transition sm:w-auto",
             "hover:bg-ice-glow disabled:cursor-not-allowed disabled:opacity-60",
           )}
         >

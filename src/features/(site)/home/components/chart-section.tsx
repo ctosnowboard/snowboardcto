@@ -9,7 +9,7 @@ export function ChartSection() {
           Live Chart
         </h2>
       </div>
-      <div className="-mx-5 sm:mx-0">
+      <div className="-mx-4 sm:mx-0">
         <DexChartEmbed />
       </div>
     </PageContainer>

@@ -21,7 +21,7 @@ import { PartnerGrid } from "./partner-grid";
 
 export default function EcosystemPage() {
   return (
-    <div className="flex flex-col overflow-x-hidden">
+    <div className="flex flex-col">
       <MarqueeBand />
 
       <div className="space-y-16 py-12 sm:space-y-20 sm:py-16 lg:space-y-24 lg:py-20">
@@ -45,7 +45,7 @@ export default function EcosystemPage() {
         <PageContainer>
           <section className="space-y-8">
             <div className="text-center">
-              <SplitHeading left="OUR" right="TOKENOMICS" />
+              <SplitHeading left="OUR" right="TOKENOMICS" as="h2" />
               <p className="mx-auto mt-4 max-w-xl text-sm text-slate-400 sm:text-base">
                 Fair launch CTO. No team wallet. Values match the SAFU banner
                 on every page.
@@ -58,7 +58,7 @@ export default function EcosystemPage() {
               {TOKENOMICS.allocations.map((item) => (
                 <article
                   key={item.label}
-                  className="rounded-2xl border border-ice/20 bg-surface/80 p-5 text-center backdrop-blur-sm sm:p-6"
+                  className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 p-5 text-center backdrop-blur-sm sm:p-6"
                 >
                   <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/80">
                     {item.label}
@@ -114,7 +114,7 @@ export default function EcosystemPage() {
               {WALLET_STEPS.map((item) => (
                 <li
                   key={item.step}
-                  className="rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm"
+                  className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm"
                 >
                   <p className="mb-3 text-xs font-bold tracking-[0.2em] text-ice-glow">
                     {item.step}
@@ -139,7 +139,7 @@ export default function EcosystemPage() {
               </h2>
               <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
                 {DIGITAL_WALLETS.map((wallet) => (
-                  <li key={wallet.name}>
+                  <li key={wallet.name} className="min-w-0">
                     <LogoCard
                       name={wallet.name}
                       href={wallet.href}
@@ -153,7 +153,7 @@ export default function EcosystemPage() {
         </PageContainer>
 
         <PageContainer width="narrow">
-          <section className="rounded-2xl border border-ice/20 bg-surface/80 p-6 backdrop-blur-sm sm:p-8 lg:p-10">
+          <section className="rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm sm:p-8 lg:p-10">
             <div className="mb-8 text-center">
               <h2 className="text-xl font-bold text-white sm:text-2xl">
                 Want to Partner With Us?

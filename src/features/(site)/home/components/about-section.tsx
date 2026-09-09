@@ -16,7 +16,7 @@ export function AboutSection() {
         linkLabel="Read the full story"
       />
       <div className="grid items-stretch gap-4 lg:grid-cols-2 lg:gap-6">
-        <section className="rounded-2xl border border-ice/20 bg-surface/80 p-6 backdrop-blur-sm sm:p-8">
+        <section className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm sm:p-8">
           <h3 className="mb-4 text-lg font-bold text-white sm:text-xl">
             {ABOUT_STORY.headline}
           </h3>
@@ -28,7 +28,7 @@ export function AboutSection() {
           src={ASSETS.art.boardRidge}
           alt="Snowboard on BSC planted on a snowy mountain ridge at sunrise"
           fill
-          className="h-full min-h-64"
+          className="aspect-4/3 h-auto min-h-0 lg:aspect-auto lg:h-full lg:min-h-64"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
       </div>

@@ -22,11 +22,11 @@ export function SectionIntro({
   return (
     <div className="text-center">
       {eyebrow ? (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-ice/80">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-ice/80 sm:tracking-[0.25em]">
           {eyebrow}
         </p>
       ) : null}
-      <SplitHeading left={left} right={right} />
+      <SplitHeading left={left} right={right} as="h2" />
       {description ? (
         <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-400 sm:mt-5 sm:text-base">
           {description}

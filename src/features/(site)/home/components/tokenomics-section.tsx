@@ -24,7 +24,7 @@ export function TokenomicsSection() {
         {TOKENOMICS.allocations.map((item) => (
           <article
             key={item.label}
-            className="rounded-2xl border border-ice/20 bg-surface/80 p-5 text-center backdrop-blur-sm sm:p-6"
+            className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 p-5 text-center backdrop-blur-sm sm:p-6"
           >
             <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/80">
               {item.label}

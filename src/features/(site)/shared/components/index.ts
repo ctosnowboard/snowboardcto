@@ -5,6 +5,7 @@ export { DexChartEmbed } from "./dex-chart-embed";
 export { ExchangeStrip } from "./exchange-strip";
 export { FaqAccordion } from "./faq-accordion";
 export { MarqueeBand } from "./marquee-band";
+export { OutlineButton } from "./outline-button";
 export { PageHeader } from "./page-header";
 export { SafuBanner } from "./safu-banner";
 export { SplitHeading } from "./split-heading";

@@ -19,7 +19,7 @@ export function HowToBuySection() {
         {WALLET_STEPS.map((item) => (
           <li
             key={item.step}
-            className="rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm"
+            className="min-w-0 rounded-2xl border border-ice/20 bg-surface/80 p-5 backdrop-blur-sm"
           >
             <p className="mb-3 text-xs font-bold tracking-[0.2em] text-ice-glow">
               {item.step}
@@ -33,9 +33,9 @@ export function HowToBuySection() {
           </li>
         ))}
       </ol>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex w-full flex-col items-center gap-4">
         <CopyCa className="w-full max-w-md" />
-        <BuyButton />
+        <BuyButton className="w-full max-w-md sm:w-auto" />
       </div>
     </PageContainer>
   );

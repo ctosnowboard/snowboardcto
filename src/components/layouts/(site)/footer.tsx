@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 import { PageContainer } from "@/components/layouts/(site)/page-container";
 import { TelegramIcon } from "@/components/icons/telegram-icon";
 import { XIcon } from "@/components/icons/x-icon";
-import { SITE, SOCIALS } from "@/features/(site)/shared";
+import { NAV_LINKS, SITE, SOCIALS } from "@/features/(site)/shared";
 import { cn } from "@/lib/utils";
 
 const socialLinkClassName = cn(
@@ -13,6 +15,21 @@ export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-ice/15 bg-surface/40 py-8 sm:py-10">
       <PageContainer className="flex flex-col items-center gap-5 text-center sm:gap-6">
+        <nav aria-label="Footer">
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {NAV_LINKS.filter((link) => link.live).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-xs font-medium text-slate-400 transition hover:text-ice-glow sm:text-sm"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
         <div className="flex items-center justify-center gap-3">
           <a
             href={SOCIALS.telegram.href}

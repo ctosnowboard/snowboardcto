@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 import { CONTRACT } from "../constants";
 
-const chartHeight = "h-72 sm:h-96 lg:h-125";
+const chartHeight = "h-64 sm:h-96 lg:h-125";
 
 export function DexChartEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);

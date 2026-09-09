@@ -21,9 +21,9 @@ export function PostCard({ post }: PostCardProps) {
             {formatPostDate(post.date)}
           </time>
         </div>
-        <h3 className="mb-3 text-base font-bold text-white sm:text-lg">
+        <h2 className="mb-3 text-base font-bold wrap-break-word text-white sm:text-lg">
           {post.title}
-        </h3>
+        </h2>
         <p className="mb-5 flex-1 text-sm leading-relaxed text-slate-400">
           {post.excerpt}
         </p>

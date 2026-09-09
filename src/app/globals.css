@@ -44,9 +44,11 @@ body {
 }
 
 .display-hero {
-  font-size: clamp(3rem, 12vw, 7rem);
+  font-size: clamp(2.25rem, 8vw + 1rem, 7rem);
   font-weight: 800;
   line-height: 0.95;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 @keyframes marquee {
